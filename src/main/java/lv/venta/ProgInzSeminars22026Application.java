@@ -74,6 +74,7 @@ public class ProgInzSeminars22026Application {
 				auth1.addUser(user2);
 				auth2.addUser(user1);
 				auth2.addUser(user3);
+				authorityRepo.saveAll(Arrays.asList(auth1,auth2));
 				
 			}
 		};
