@@ -59,4 +59,8 @@ public class MyAuthority {
 		}
 	}
 	
+	public MyAuthority(String title) {
+		setTitle(title);
+	}
+	
 }

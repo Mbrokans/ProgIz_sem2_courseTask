@@ -44,5 +44,23 @@ public class MyUser {
 	private String password;
 	
 	@ManyToMany(mappedBy="users")
-	private Collection<MyAuthority> authority = new ArrayList<MyAuthority>();
+	private Collection<MyAuthority> authorities = new ArrayList<MyAuthority>();
+	
+	public void addAuthority(MyAuthority authority) {
+		if(!authorities.contains(authority)) {
+			authorities.add(authority);
+		}
+	}
+	public void removeAuthority(MyAuthority authority) {
+		if(authorities.contains(authority)) {
+			authorities.remove(authority);
+		}
+	}
+	public MyUser(String username, String password, MyAuthority ...inputauthorities) {
+		setUsername(username);
+		setPassword(password);
+		for(MyAuthority tampA : inputauthorities) {
+			addAuthority(tampA);
+		}
+	}
 }
